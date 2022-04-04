@@ -13,5 +13,40 @@ MonoBehaviour:
   m_Name: HierarchyStylePalette
   m_EditorClassIdentifier: 
   saturation: 70
-  value: 100
-  styles: []
+  value: 90
+  styles:
+  - key: _gard
+    ignoreSV: 0
+    backgroundColor: {r: 0.9, g: 0.27, b: 0.27, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textSize: 12
+    fontStyle: 1
+    textAlignement: 4
+  - key: _p
+    ignoreSV: 1
+    backgroundColor: {r: 0.34121177, g: 0.7735849, b: 0.20069422, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textSize: 12
+    fontStyle: 3
+    textAlignement: 4
+  - key: _path
+    ignoreSV: 0
+    backgroundColor: {r: 0.27, g: 0.33213943, b: 0.9, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textSize: 12
+    fontStyle: 1
+    textAlignement: 4
+  - key: _lvl
+    ignoreSV: 0
+    backgroundColor: {r: 0.9, g: 0.27, b: 0.8239296, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textSize: 12
+    fontStyle: 1
+    textAlignement: 4
+  - key: _lighting
+    ignoreSV: 0
+    backgroundColor: {r: 0.9, g: 0.5197115, b: 0.27, a: 1}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    textSize: 12
+    fontStyle: 1
+    textAlignement: 4
