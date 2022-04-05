@@ -15,8 +15,8 @@ MonoBehaviour:
   config: 1
   levelName: Level 01
   levelDuration: 60
-  maxInventorySlot: 0
-  proposedItems: 0
+  maxInventorySlot: 2
+  proposedItems: 4
   items:
   - itemOn: {fileID: 0}
     itemOff: {fileID: 0}

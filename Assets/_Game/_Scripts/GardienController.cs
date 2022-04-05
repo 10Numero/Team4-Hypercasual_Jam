@@ -20,6 +20,8 @@ public class GardienController : MonoBehaviour
 
     [SerializeField] Path[] paths;
     [ReadOnly, SerializeField] Path currentPath;
+
+    public FieldOfView gardienFov;
     
     private int patternIndex;
 
@@ -28,8 +30,14 @@ public class GardienController : MonoBehaviour
         patternIndex = 0;
     }
 
+    private void Reset()
+    {
+        gardienFov = GetComponent<FieldOfView>();
+    }
+
     private void Start()
     {
+        GardiensManager.Instance.RegisterGardien(this);
         NextPoint();
     }
 

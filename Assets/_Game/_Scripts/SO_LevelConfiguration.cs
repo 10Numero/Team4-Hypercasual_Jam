@@ -13,6 +13,9 @@ public class SO_LevelConfiguration : ScriptableObject
     
     #region settings
     [ShowIf("config", Configuration.Settings)] 
+    public string levelSceneName = "Level 01";
+    
+    [ShowIf("config", Configuration.Settings)] 
     public string levelName = "Level 01";
     
     [ShowIf("config", Configuration.Settings), Tooltip("Durée maximum du niveau en seconde.")] 
@@ -27,14 +30,15 @@ public class SO_LevelConfiguration : ScriptableObject
     [ShowIf("config", Configuration.Items), Range(0, 5), OnValueChanged("UpdateProposedItems")] 
     public int proposedItems;
 
-    [ShowIf("config", Configuration.Items), ShowIf("@this.proposedItems != 0"), SerializeField]
-    public Item[] items;
+    [ShowIf("config", Configuration.Items)/*, ShowIf("@this.proposedItems != 0")*/, SerializeField]
+    public List<Item> items = new List<Item>();
 
     [System.Serializable]
     public class Item
     {
         public Sprite itemOn;
         public Sprite itemOff;
+        public GameObject abilityPrefab;
     }
     #endregion
     
@@ -43,13 +47,34 @@ public class SO_LevelConfiguration : ScriptableObject
         if (proposedItems < maxInventorySlot)
         {
             maxInventorySlot = proposedItems;
-            items = new Item[proposedItems];
+            //items = new Item[proposedItems];
+            
+            // UpdateItemLength();
         }
     }
 
+    // void UpdateItemLength()
+    // {
+    //     if (proposedItems > items.Count)
+    //     {
+    //         while (proposedItems < items.Count)
+    //         {
+    //             items.Add(new Item());
+    //         }
+    //     }
+    //     else
+    //     {
+    //         while (proposedItems > items.Count)
+    //         {
+    //             items.RemoveAt(items.Count - 1);
+    //         }
+    //     }
+    // }
+
     void UpdateMaxItemSlot()
     {
-        items = new Item[proposedItems];
+        //UpdateItemLength();
+        //items = new Item[proposedItems];
         
         if (proposedItems < maxInventorySlot)
             maxInventorySlot = proposedItems;

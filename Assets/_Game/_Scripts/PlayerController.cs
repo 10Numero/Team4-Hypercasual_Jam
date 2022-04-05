@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,5 +14,15 @@ public class PlayerController : MonoBehaviour
         dir *= speed * 0.001f;
         
         transform.Translate(dir);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("col : " + other.name);
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Objectif"))
+        {
+            Debug.Log("win");
+        }
     }
 }
