@@ -28,22 +28,30 @@ public class SO_LevelConfiguration : ScriptableObject
     public int proposedItems;
 
     [ShowIf("config", Configuration.Items), ShowIf("@this.proposedItems != 0"), SerializeField]
-    public Sprite[] items;
+    public Item[] items;
+
+    [System.Serializable]
+    public class Item
+    {
+        public Sprite itemOn;
+        public Sprite itemOff;
+    }
     #endregion
     
     void UpdateProposedItems()
     {
-        items = new Sprite[proposedItems];
-
-        if (proposedItems > maxInventorySlot)
-            proposedItems = maxInventorySlot;
+        if (proposedItems < maxInventorySlot)
+        {
+            maxInventorySlot = proposedItems;
+            items = new Item[proposedItems];
+        }
     }
 
     void UpdateMaxItemSlot()
     {
-        items = new Sprite[proposedItems];
+        items = new Item[proposedItems];
         
-        if (proposedItems > maxInventorySlot)
+        if (proposedItems < maxInventorySlot)
             maxInventorySlot = proposedItems;
     }
 }

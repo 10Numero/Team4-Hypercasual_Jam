@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b71c6255dbf3684989ee12fe2470646, type: 3}
   m_Name: Level Configuration 01
   m_EditorClassIdentifier: 
-  config: 0
+  config: 1
   levelName: Level 01
   levelDuration: 60
-  maxItemSlot: 0
+  maxInventorySlot: 0
   proposedItems: 0
   items:
-  - {fileID: 0}
+  - itemOn: {fileID: 0}
+    itemOff: {fileID: 0}

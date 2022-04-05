@@ -15,10 +15,12 @@ MonoBehaviour:
   config: 1
   levelName: Level 01
   levelDuration: 60
-  maxItemSlot: 4
-  proposedItems: 4
+  maxInventorySlot: 2
+  proposedItems: 3
   items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - itemOn: {fileID: 21300000, guid: 253ed6bbea1f6aa4bab35f30705bf3ec, type: 3}
+    itemOff: {fileID: 21300000, guid: b4524f1972ae0c94ca45ee23f5098ce5, type: 3}
+  - itemOn: {fileID: 21300000, guid: 075d55fd7c6d52c4d8b4b1378e52498c, type: 3}
+    itemOff: {fileID: 21300000, guid: 96df82720c57ffc40beb72eda93538eb, type: 3}
+  - itemOn: {fileID: 21300000, guid: c87ceccd62022c541a5d9de5ed10664c, type: 3}
+    itemOff: {fileID: 21300000, guid: fb56b32e7b0b0bd4e9a790f2e487b818, type: 3}
