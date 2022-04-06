@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,14 +16,22 @@ public class PlayerController : MonoBehaviour
         canMove = false;
     }
 
+    IEnumerator Start()
+    {
+        yield return new WaitForEndOfFrame();
+        joystick.canvas.gameObject.SetActive(false);
+    }
+
     void OnGameStart()
     {
         canMove = true;
+        joystick.canvas.gameObject.SetActive(true);
     }
 
     void OnGameWinOrLoose()
     {
         canMove = false;
+        joystick.canvas.gameObject.SetActive(false);
     }
     
     void Update()

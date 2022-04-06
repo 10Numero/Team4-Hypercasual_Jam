@@ -20,16 +20,19 @@ public class WinLooseMenu : MonoBehaviour
         
         restartLevel.onClick.AddListener(RestartLevel);
         backToMenu.onClick.AddListener(BackToMenu);
+        GetComponent<GraphicRaycaster>().enabled = false;
     }
 
     void OnGameWin()
     {
         menu.alpha = 1;
+        GetComponent<GraphicRaycaster>().enabled = true;
     }
 
     void OnGameLoose()
     {
         menu.alpha = 1;
+        GetComponent<GraphicRaycaster>().enabled = true;
     }
 
     void RestartLevel()
