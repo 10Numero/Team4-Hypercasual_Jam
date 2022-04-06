@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b71c6255dbf3684989ee12fe2470646, type: 3}
   m_Name: Level 01
   m_EditorClassIdentifier: 
-  config: 0
+  config: 1
   levelSceneName: Level 01
   levelName: Level 01
   levelDuration: 60
-  maxInventorySlot: 1
-  proposedItems: 1
+  maxInventorySlot: 2
+  proposedItems: 2
   items:
-  - itemOn: {fileID: 21300000, guid: 253ed6bbea1f6aa4bab35f30705bf3ec, type: 3}
-    itemOff: {fileID: 21300000, guid: b4524f1972ae0c94ca45ee23f5098ce5, type: 3}
-    abilityPrefab: {fileID: 4324043245087128572, guid: d823910b64487754bbe7a0ca6af761a3, type: 3}
+  - itemOn: {fileID: 21300000, guid: c87ceccd62022c541a5d9de5ed10664c, type: 3}
+    itemOff: {fileID: 21300000, guid: fb56b32e7b0b0bd4e9a790f2e487b818, type: 3}
+    abilityPrefab: {fileID: 8244922363344422094, guid: 142de4bf6e7b9f74b910e58791052f8f, type: 3}
+  - itemOn: {fileID: 21300000, guid: c87ceccd62022c541a5d9de5ed10664c, type: 3}
+    itemOff: {fileID: 21300000, guid: fb56b32e7b0b0bd4e9a790f2e487b818, type: 3}
+    abilityPrefab: {fileID: 8244922363344422094, guid: 142de4bf6e7b9f74b910e58791052f8f, type: 3}
