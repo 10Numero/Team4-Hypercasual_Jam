@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _10KDLL.Threading;
 using Unity.Collections;
 using UnityEngine;
@@ -61,5 +62,16 @@ public class GardiensManager : MonoBehaviour
     {
         ChangeGardiensRadius(__newRadius, __duration);
         ChangeGardienAngle(__newAngle, __duration);
+    }
+    
+    public List<GardienController> GetGardienInRadius(Vector3 __pos, float __radius)
+    {
+        List<GardienController> gardiens = new List<GardienController>();
+        foreach (var gardien in from gardien in this.gardiens let dst = Vector3.Distance(__pos, gardien.transform.position) where dst < __radius / 2 select gardien)
+        {
+            gardiens.Add(gardien);
+        }
+
+        return gardiens;
     }
 }

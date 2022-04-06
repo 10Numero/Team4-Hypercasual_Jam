@@ -7,19 +7,24 @@ using UnityEngine.UI;
 public abstract class AAbility : MonoBehaviour
 {
     public GameObject uiAbility { get; set; }
-    public Image barDuration{ get; set; }
+    public Image barDuration { get; set; }
     public float abilityDuration = 0;
-    
+
+    public bool autoDestroy = true;
     public Color goodRemainingDurationColor = Color.red;
     public Color badRemainingDurationColor = Color.green;
 
     protected void Start()
     {
         UpdateDuration();
-        
-        Destroy(gameObject, abilityDuration);
-        Destroy(uiAbility, abilityDuration);
+
+        if (autoDestroy)
+        {
+            Destroy(gameObject, abilityDuration);
+            Destroy(uiAbility, abilityDuration);
+        }
     }
+
 
     public void Init(GameObject __uiAbility, Image __barDuration)
     {
