@@ -108,6 +108,8 @@ public class ItemController : MonoBehaviour
 
     void Ready()
     {
+        GameManager.OnGameStart?.Invoke();
+        
         foreach (Transform child in itemContainer)
         {
             var toggle = child.transform.GetComponent<Toggle>();

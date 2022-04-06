@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static System.Action OnWin;
     public static System.Action OnLoose;
+    public static System.Action OnGameStart;
 
     private void Awake()
     {
@@ -22,5 +23,11 @@ public class GameManager : MonoBehaviour
     void OnGameLoose()
     {
         
+    }
+
+    private void OnDisable()
+    {
+        OnWin -= OnWin;
+        OnLoose -= OnLoose;
     }
 }

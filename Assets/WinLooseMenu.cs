@@ -41,4 +41,10 @@ public class WinLooseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    private void OnDisable()
+    {
+        GameManager.OnWin -= OnGameWin;
+        GameManager.OnLoose -= OnGameLoose;
+    }
 }

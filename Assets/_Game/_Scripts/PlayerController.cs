@@ -4,9 +4,30 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    private bool canMove;
+    private void Awake()
+    {
+        GameManager.OnGameStart += OnGameStart;
+        GameManager.OnWin += OnGameWinOrLoose;
+        GameManager.OnLoose += OnGameWinOrLoose;
+        canMove = false;
+    }
+
+    void OnGameStart()
+    {
+        canMove = true;
+    }
+
+    void OnGameWinOrLoose()
+    {
+        canMove = false;
+    }
     
     void Update()
     {
+        if (!canMove)
+            return;
+        
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
 
@@ -22,5 +43,10 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.OnWin.Invoke();
         }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameStart -= OnGameStart;
     }
 }
