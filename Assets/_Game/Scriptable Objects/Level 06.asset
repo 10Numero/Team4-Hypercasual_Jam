@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b71c6255dbf3684989ee12fe2470646, type: 3}
-  m_Name: Level 01
+  m_Name: Level 06
   m_EditorClassIdentifier: 
   config: 0
-  levelSceneName: Level 01
-  levelName: Level 01
+  levelSceneName: Level 06
+  levelName: Level 06
   levelDuration: 60
   maxInventorySlot: 1
   proposedItems: 1
