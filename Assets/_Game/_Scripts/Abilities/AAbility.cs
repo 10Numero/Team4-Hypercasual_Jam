@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AAbility : MonoBehaviour
+public abstract class AAbility : MonoBehaviour
 {
     public GameObject uiAbility { get; set; }
     public Image barDuration{ get; set; }

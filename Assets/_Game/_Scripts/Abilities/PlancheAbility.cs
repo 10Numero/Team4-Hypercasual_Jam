@@ -16,7 +16,6 @@ public class PlancheAbility : AAbility
 
     Transform GetClosestAgentPosition()
     {
-        Debug.Log("Closest agent");
         Transform closestGardien = null;
         var closestDist = Mathf.Infinity;
 

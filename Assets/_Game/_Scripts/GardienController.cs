@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using _10KDLL.Threading;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -25,9 +27,18 @@ public class GardienController : MonoBehaviour
     
     private int patternIndex;
 
+    private TweenerCore<Vector3, Vector3, VectorOptions> _tweenMove;
+    private TweenerCore<Quaternion, Vector3, QuaternionOptions> _tweenRot;
+
     private void Awake()
     {
         patternIndex = 0;
+    }
+
+    public void StopGardien()
+    {
+        _tweenMove.Kill();
+        _tweenRot.Kill();
     }
 
     private void Reset()
@@ -45,11 +56,11 @@ public class GardienController : MonoBehaviour
     {
         currentPath = paths[patternIndex];
         
-        transform.DOMove(currentPath.endPath.position, currentPath.movementDuration)
+        _tweenMove = transform.DOMove(currentPath.endPath.position, currentPath.movementDuration)
             .SetEase(Ease.Linear)
             .OnComplete(() => Async.Delay(currentPath.timeBeforeNextPath, NextPoint));
         
-        transform.DORotate(currentPath.endPath.rotation.eulerAngles, currentPath.rotationDuration);
+        _tweenRot = transform.DORotate(currentPath.endPath.rotation.eulerAngles, currentPath.rotationDuration);
         
         patternIndex = patternIndex == paths.Length - 1 ? 0 : patternIndex + 1;
     }

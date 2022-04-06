@@ -13,8 +13,6 @@ public class FieldOfView : MonoBehaviour {
 	
 	//public List<Transform> visibleTargets = new List<Transform>();
 
-	public static System.Action OnSpotPlayer;
-	
 	public float meshResolution = 3;
 	public int edgeResolveIterations = 4;
 	public float edgeDstThreshold = 0.5f;
@@ -55,7 +53,8 @@ public class FieldOfView : MonoBehaviour {
 			if (Vector3.Angle (transform.forward, dirToTarget) < viewAngle / 2) {
 				float dstToTarget = Vector3.Distance (transform.position, target.position);
 				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
-					OnSpotPlayer?.Invoke();
+					GameManager.OnLoose?.Invoke();
+					GetComponent<GardienController>().StopGardien();
 				}
 			}
 		}

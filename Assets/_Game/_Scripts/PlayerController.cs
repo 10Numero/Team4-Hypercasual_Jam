@@ -18,11 +18,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("col : " + other.name);
-        
         if (other.gameObject.layer == LayerMask.NameToLayer("Objectif"))
         {
-            Debug.Log("win");
+            GameManager.OnWin.Invoke();
         }
     }
 }
