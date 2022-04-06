@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
         var dir = new Vector3(horizontal, 0, vertical);
         dir *= speed * 0.001f;
-        
+
         transform.Translate(dir);
     }
 

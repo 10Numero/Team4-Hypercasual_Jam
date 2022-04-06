@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     {
         OnWin += OnGameWin;
         OnLoose += OnGameLoose;
+
+        Application.targetFrameRate = 60;
     }
 
     void OnGameWin()
