@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private bool canMove;
     public FloatingJoystick joystick;
+    public Transform character;
     
     private void Awake()
     {
@@ -45,6 +47,9 @@ public class PlayerController : MonoBehaviour
         var dir = new Vector3(horizontal + joystick.Direction.x, 0, vertical + joystick.Direction.y);
         dir *= speed * 0.001f;
 
+        if(dir.x != 0|| dir.z != 0)
+            character.transform.rotation = quaternion.LookRotation(new float3(dir.x, 0, dir.z), Vector3.up);
+        
         transform.Translate(dir);
     }
 
