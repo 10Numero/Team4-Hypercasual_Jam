@@ -19,6 +19,6 @@ MonoBehaviour:
   maxInventorySlot: 1
   proposedItems: 1
   items:
-  - itemOn: {fileID: 21300000, guid: cc0bbf2beb6f57e4f9bc59bb227314e3, type: 3}
-    itemOff: {fileID: 21300000, guid: cc0bbf2beb6f57e4f9bc59bb227314e3, type: 3}
+  - itemOn: {fileID: 21300000, guid: efd2875bf85b9a648b1cba2cee8943b9, type: 3}
+    itemOff: {fileID: 21300000, guid: eb0f089e4b47d49499e3afbb6da996a5, type: 3}
     abilityPrefab: {fileID: 2991098953684739900, guid: 0a08d3052573fad4ba65d5297188293d, type: 3}

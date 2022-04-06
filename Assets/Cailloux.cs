@@ -9,7 +9,8 @@ public class Cailloux : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
             ability.OnImpact(transform.position);
-            Destroy(transform.parent.gameObject, 5);
+            ability.DestroyAbility();
+            Destroy(transform.gameObject, 5);
         }
     }
 }

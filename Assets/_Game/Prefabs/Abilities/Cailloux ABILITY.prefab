@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bca3c0775982c44bfab4dd6b18cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityDuration: 0
+  abilityDuration: 3
   autoDestroy: 0
   goodRemainingDurationColor: {r: 1, g: 0, b: 0, a: 1}
   badRemainingDurationColor: {r: 0, g: 1, b: 0, a: 1}
@@ -52,7 +52,6 @@ MonoBehaviour:
   soundRadius: 8
   cailloux: {fileID: 2991098954272986965}
   explosionPoint: {fileID: 2991098953684739903}
-  stunTime: 3
 --- !u!1 &2991098954272986958
 GameObject:
   m_ObjectHideFlags: 0

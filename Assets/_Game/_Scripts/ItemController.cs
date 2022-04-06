@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using DG.Tweening;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,8 @@ public class ItemController : MonoBehaviour
 
     private bool isPlaying;
     public SceneReferences sceneRef;
+
+    private Dictionary<int, bool> used = new Dictionary<int, bool>();
 
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class ItemController : MonoBehaviour
             var item = Instantiate(itemPrefab, itemContainer);
             item.transform.GetChild(0).GetComponent<Image>().sprite = _config.levelConfiguration.items[i].itemOff;
             item.transform.GetChild(0).GetComponent<Image>().DOColor(new Color(1, 1, 1, alphaUnselectedItem), 0);
+            used[index] = false;
             item.onValueChanged.AddListener(isOn => ToggleItemSlot(isOn, index, item));
         }
     }
@@ -73,6 +77,11 @@ public class ItemController : MonoBehaviour
 
     void ItemUtilisation(int __index, Toggle __item)
     {
+        if (used[__index])
+            return;
+
+        used[__index] = true;
+        
         Instantiate(_config.levelConfiguration.items[__index].abilityPrefab,
             sceneRef.Instance.player.transform.GetChild(0)).GetComponent<AAbility>().Init(__item.gameObject, barDuration);
     }

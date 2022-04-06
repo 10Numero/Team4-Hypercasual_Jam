@@ -130,7 +130,7 @@ public class GardienController : MonoBehaviour
         {
             feedbackCanvas.alpha = 0;
             isStopped = false;
-            ResumeGardien();
+            NextPoint();
         });
     }
 }

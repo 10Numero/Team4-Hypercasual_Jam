@@ -17,12 +17,15 @@ public abstract class AAbility : MonoBehaviour
     protected void Start()
     {
         UpdateDuration();
+        
+        if(autoDestroy)
+            DestroyAbility();
+    }
 
-        if (autoDestroy)
-        {
-            Destroy(gameObject, abilityDuration);
-            Destroy(uiAbility, abilityDuration);
-        }
+    public void DestroyAbility()
+    {
+        Destroy(gameObject, abilityDuration);
+        Destroy(uiAbility, abilityDuration);
     }
 
 
