@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     private bool canMove;
+    public FloatingJoystick joystick;
+    
     private void Awake()
     {
         GameManager.OnGameStart += OnGameStart;
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
 
-        var dir = new Vector3(horizontal, 0, vertical);
+        var dir = new Vector3(horizontal + joystick.Direction.x, 0, vertical + joystick.Direction.y);
         dir *= speed * 0.001f;
 
         transform.Translate(dir);
