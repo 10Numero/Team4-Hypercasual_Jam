@@ -1729,6 +1729,11 @@ Transform:
   m_Father: {fileID: 286248248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &1713781276 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 6925750768421285202, guid: 2607139c0cadb5247847a064000b3e9a, type: 3}
+  m_PrefabInstance: {fileID: 5970438155370836937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1713781280 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5970438156950374889, guid: 2607139c0cadb5247847a064000b3e9a, type: 3}
@@ -2374,6 +2379,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5970438156950374889, guid: 2607139c0cadb5247847a064000b3e9a, type: 3}
+      propertyPath: cc
+      value: 
+      objectReference: {fileID: 1713781276}
     - target: {fileID: 5970438156950374889, guid: 2607139c0cadb5247847a064000b3e9a, type: 3}
       propertyPath: joystick
       value: 

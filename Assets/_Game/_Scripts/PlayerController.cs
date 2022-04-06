@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
     public FloatingJoystick joystick;
     public Transform character;
+    public CharacterController cc;
     
     private void Awake()
     {
@@ -49,8 +50,9 @@ public class PlayerController : MonoBehaviour
 
         if(dir.x != 0|| dir.z != 0)
             character.transform.rotation = quaternion.LookRotation(new float3(dir.x, 0, dir.z), Vector3.up);
-        
-        transform.Translate(dir);
+
+        cc.Move(dir);
+        //transform.Translate(dir);
     }
 
     private void OnTriggerEnter(Collider other)
