@@ -52,6 +52,7 @@ MonoBehaviour:
   readyContainer: {fileID: 89160600255176840}
   alphaUnselectedItem: 0.8
   alphaNoSpace: 0.2
+  textPickitem: {fileID: 89160599781540184}
   sceneRef: {fileID: 11400000, guid: 4bd0b06bb7903e548bf265894972076d, type: 2}
 --- !u!1 &89160598925462926
 GameObject:

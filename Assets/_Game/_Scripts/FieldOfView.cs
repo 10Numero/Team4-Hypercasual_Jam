@@ -22,6 +22,8 @@ public class FieldOfView : MonoBehaviour {
 	public MeshFilter viewMeshFilter;
 	Mesh viewMesh;
 
+	private bool stop;
+	
 	void Start() {
 		viewMesh = new Mesh ();
 		viewMesh.name = "View Mesh";
@@ -44,6 +46,7 @@ public class FieldOfView : MonoBehaviour {
 
 	void FindVisibleTargets()
 	{
+		if (stop) return;
 		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
 
 		foreach (var t in targetsInViewRadius)
@@ -55,6 +58,7 @@ public class FieldOfView : MonoBehaviour {
 				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
 					GameManager.OnLoose?.Invoke();
 					GetComponent<GardienController>().StopGardien();
+					stop = true;
 				}
 			}
 		}

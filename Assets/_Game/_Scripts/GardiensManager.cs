@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using _10KDLL.Threading;
+// using _10KDLL.Threading;
 using Unity.Collections;
 using UnityEngine;
 
@@ -13,6 +13,7 @@ public class GardiensManager : MonoBehaviour
 
     public void RegisterGardien(GardienController __gardien) => gardiens.Add(__gardien);
     public void UnRegisterGardien(GardienController __gardien) => gardiens.Remove(__gardien);
+    
     private void Awake()
     {
         Instance = this;
@@ -20,17 +21,27 @@ public class GardiensManager : MonoBehaviour
 
     public void ChangeGardiensRadius(float __newRadius, float __duration = 0)
     {
-        var originalViewRadius = gardiens[0].gardienFov.viewRadius;
-        Debug.Log("original radius : " + originalViewRadius + " duration : " + __duration);
+        var originalViewsRadius = gardiens.Select(gardien => gardien.gardienFov.viewRadius).ToList();
+        
         if (__duration != 0)
         {
-            Async.Delay(__duration, delegate
+            // Async.Delay(__duration, delegate
+            // {
+            //     for (int i = 0; i < gardiens.Count; i++)
+            //     {
+            //         gardiens[i].gardienFov.viewRadius = originalViewsRadius[i];
+            //     }
+            // });
+
+            StartCoroutine(Delay());
+            IEnumerator Delay()
             {
-                foreach (var gardien in gardiens)
+                yield return new WaitForSeconds(__duration);
+                for (var i = 0; i < gardiens.Count; i++)
                 {
-                    gardien.gardienFov.viewRadius = originalViewRadius;
+                    gardiens[i].gardienFov.viewRadius = originalViewsRadius[i];
                 }
-            });
+            }
         }
         
         foreach (var gardien in gardiens)
@@ -43,14 +54,25 @@ public class GardiensManager : MonoBehaviour
     {
         if (__duration != 0)
         {
-            Async.Delay(__duration, delegate
+            StartCoroutine(Delay());
+
+            IEnumerator Delay()
             {
+                yield return new WaitForSeconds(__duration);
                 foreach (var gardien in gardiens)
                 {
                     var originalViewAngle = gardien.gardienFov.viewAngle;
                     gardien.gardienFov.viewAngle = originalViewAngle;
                 }
-            });
+            }
+            // Async.Delay(__duration, delegate
+            // {
+            //     foreach (var gardien in gardiens)
+            //     {
+            //         var originalViewAngle = gardien.gardienFov.viewAngle;
+            //         gardien.gardienFov.viewAngle = originalViewAngle;
+            //     }
+            // });
         }
         
         foreach (var gardien in gardiens)

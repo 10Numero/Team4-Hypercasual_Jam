@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using DG.Tweening;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ public class ItemController : MonoBehaviour
     public float alphaUnselectedItem = 0.4f;
     public float alphaNoSpace = 0.2f;
 
+    public TextMeshProUGUI textPickitem;
+    
     private bool hasBeenUpdated;
 
     private bool isPlaying;
@@ -36,6 +39,8 @@ public class ItemController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        textPickitem.text = "Pick <b>" + _config.levelConfiguration.maxInventorySlot + "</b> item" + (_config.levelConfiguration.maxInventorySlot > 1 ? "s" : "");
         
         pickItems.gameObject.SetActive(true);
         

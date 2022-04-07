@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using _10KDLL.Threading;
+// using _10KDLL.Threading;
 using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
@@ -95,8 +95,14 @@ public class GardienController : MonoBehaviour
         
         _tweenMove = transform.DOMove(currentPath.endPath.position, currentPath.movementDuration)
             .SetEase(Ease.Linear)
-            .OnComplete(() => Async.Delay(currentPath.timeBeforeNextPath, NextPoint));
-        
+            .OnComplete(() => StartCoroutine(Delay()));
+
+        IEnumerator Delay()
+        {
+            yield return new WaitForSeconds(currentPath.timeBeforeNextPath);
+            NextPoint();
+        }
+
         _tweenRot = transform.DORotate(currentPath.endPath.rotation.eulerAngles, currentPath.rotationDuration);
         
         patternIndex = patternIndex == paths.Length - 1 ? 0 : patternIndex + 1;
@@ -126,12 +132,21 @@ public class GardienController : MonoBehaviour
         PauseGardien();
         
         transform.LookAt(__soundPosition);
-        
-        Async.Delay(__duration, delegate
+
+        StartCoroutine(Delay());
+        IEnumerator Delay()
         {
+            yield return new WaitForSeconds(__duration);
             feedbackCanvas.alpha = 0;
             isStopped = false;
             NextPoint();
-        });
+        }
+        
+        // Async.Delay(__duration, delegate
+        // {
+        //     feedbackCanvas.alpha = 0;
+        //     isStopped = false;
+        //     NextPoint();
+        // });
     }
 }
