@@ -239,6 +239,7 @@ MonoBehaviour:
   menu: {fileID: 2132224812681077586}
   restartLevel: {fileID: 2132224812594014766}
   backToMenu: {fileID: 2132224813853079202}
+  winLooseText: {fileID: 2132224813206446271}
 --- !u!225 &2132224812681077586
 CanvasGroup:
   m_ObjectHideFlags: 0
