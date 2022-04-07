@@ -37,7 +37,7 @@ public class WinLooseMenu : MonoBehaviour
 
     void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void BackToMenu()
