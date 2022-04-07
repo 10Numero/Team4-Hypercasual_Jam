@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class GardienController : MonoBehaviour
 {
+    public bool gardienStatic;
     [System.Serializable]
     public class Path
     {

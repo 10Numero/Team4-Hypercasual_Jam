@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4c3961d1dbaaa4a83cb147fa0343e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityDuration: 3
+  abilityDuration: 1.5
+  autoDestroy: 1
   goodRemainingDurationColor: {r: 1, g: 0, b: 0, a: 1}
   badRemainingDurationColor: {r: 0, g: 1, b: 0, a: 1}
   sceneRef: {fileID: 11400000, guid: 4bd0b06bb7903e548bf265894972076d, type: 2}
-  radiusLightoff: 2.5
+  radiusLightoff: 2

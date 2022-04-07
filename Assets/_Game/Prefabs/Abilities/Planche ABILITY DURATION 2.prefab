@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8244922363344422129}
   - component: {fileID: 2217013101897218187}
   m_Layer: 6
-  m_Name: Planche ABILITY
+  m_Name: Planche ABILITY DURATION 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267f13ec24d243443bac660833ba6ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityDuration: 2.5
+  abilityDuration: 2
   autoDestroy: 1
   goodRemainingDurationColor: {r: 1, g: 0, b: 0, a: 1}
   badRemainingDurationColor: {r: 0, g: 1, b: 0, a: 1}

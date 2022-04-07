@@ -20,13 +20,14 @@ public class GardiensManager : MonoBehaviour
 
     public void ChangeGardiensRadius(float __newRadius, float __duration = 0)
     {
+        var originalViewRadius = gardiens[0].gardienFov.viewRadius;
+        Debug.Log("original radius : " + originalViewRadius + " duration : " + __duration);
         if (__duration != 0)
         {
             Async.Delay(__duration, delegate
             {
                 foreach (var gardien in gardiens)
                 {
-                    var originalViewRadius = gardien.gardienFov.viewRadius;
                     gardien.gardienFov.viewRadius = originalViewRadius;
                 }
             });

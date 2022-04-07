@@ -6,10 +6,11 @@ using UnityEngine;
 public class SO_Levels : ScriptableObject
 {
     public List<SO_LevelConfiguration> levels = new List<SO_LevelConfiguration>();
-    
+    #if UNITY_EDITOR
     [Button]
     private void RegisterLevel()
     {
         levels = FindScriptableObject.GetLevels<SO_LevelConfiguration>();
     }
+    #endif
 }

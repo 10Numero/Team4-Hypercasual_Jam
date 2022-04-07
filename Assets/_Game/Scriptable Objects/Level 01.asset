@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b71c6255dbf3684989ee12fe2470646, type: 3}
   m_Name: Level 01
   m_EditorClassIdentifier: 
-  config: 1
+  config: 0
   levelSceneName: Level 01
   levelName: Level 01
   levelDuration: 60
