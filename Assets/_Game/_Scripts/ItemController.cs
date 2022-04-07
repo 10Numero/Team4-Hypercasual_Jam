@@ -16,6 +16,7 @@ public class ItemController : MonoBehaviour
     [SerializeField] private Transform itemContainer;
     private int _itemInInventory;
 
+    [SerializeField] private CanvasGroup pickItems;
     [SerializeField] private Button readyContainer;
     
     public float alphaUnselectedItem = 0.4f;
@@ -34,7 +35,9 @@ public class ItemController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
+        
+        pickItems.gameObject.SetActive(true);
+        
         hasBeenUpdated = true;
         
         readyContainer.gameObject.SetActive(_itemInInventory >= _config.levelConfiguration.maxInventorySlot);
@@ -110,6 +113,7 @@ public class ItemController : MonoBehaviour
             : alphaUnselectedItem), 0);
         
         readyContainer.gameObject.SetActive(_itemInInventory >= _config.levelConfiguration.maxInventorySlot);
+        pickItems.gameObject.SetActive(_itemInInventory < _config.levelConfiguration.maxInventorySlot);
         
         if(_itemInInventory >= _config.levelConfiguration.maxInventorySlot || !hasBeenUpdated)
             UpdateAlpha();
