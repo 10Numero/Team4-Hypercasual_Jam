@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using DG.Tweening;
 using JetBrains.Annotations;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,6 +61,7 @@ public class ItemController : MonoBehaviour
         }
     }
 
+    [Button]
     void OnReset()
     {
         _config = FindObjectOfType<LevelConfiguration>();
